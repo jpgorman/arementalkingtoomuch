@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="check who's dominating the conversation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XD-Gn-MlL">
+                                <rect key="frame" x="16" y="62" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ueF-Tg-3Iy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="who's talking?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed2-xa-r7w">
+                                <rect key="frame" x="16" y="157" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="9bc-mG-h2i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0% men" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfz-Nk-fbe">
+                                <rect key="frame" x="16" y="211" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzK-fA-0iJ">
+                                <rect key="frame" x="69" y="469" width="47" height="30"/>
+                                <state key="normal" title="a dude"/>
+                                <connections>
+                                    <action selector="handleButtonEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HmN-xN-ujU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYN-Y2-Gec">
+                                <rect key="frame" x="249" y="469" width="74" height="30"/>
+                                <state key="normal" title="not a dude"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4XD-Gn-MlL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fxe-2w-onX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xzK-fA-0iJ" secondAttribute="bottom" constant="168" id="IfF-m6-qCA"/>
+                            <constraint firstItem="Ed2-xa-r7w" firstAttribute="trailing" secondItem="Gfz-Nk-fbe" secondAttribute="trailing" id="Uxk-Fh-84e"/>
+                            <constraint firstItem="4XD-Gn-MlL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Vhl-VX-IrS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vYN-Y2-Gec" secondAttribute="trailing" constant="36" id="WmV-WV-1cx"/>
+                            <constraint firstItem="4XD-Gn-MlL" firstAttribute="leading" secondItem="Ed2-xa-r7w" secondAttribute="leading" id="X3i-Fw-Nso"/>
+                            <constraint firstItem="4XD-Gn-MlL" firstAttribute="trailing" secondItem="Ed2-xa-r7w" secondAttribute="trailing" id="ajz-tj-5Pj"/>
+                            <constraint firstItem="Ed2-xa-r7w" firstAttribute="leading" secondItem="Gfz-Nk-fbe" secondAttribute="leading" id="gH1-Wv-Kz0"/>
+                            <constraint firstItem="4XD-Gn-MlL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="hHU-xo-Rkk"/>
+                            <constraint firstItem="xzK-fA-0iJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="53" id="kQV-qg-X6V"/>
+                            <constraint firstItem="Ed2-xa-r7w" firstAttribute="top" secondItem="4XD-Gn-MlL" secondAttribute="bottom" constant="74" id="ldP-OV-EhC"/>
+                            <constraint firstItem="xzK-fA-0iJ" firstAttribute="baseline" secondItem="vYN-Y2-Gec" secondAttribute="baseline" id="saf-hY-Kw1"/>
+                            <constraint firstItem="Gfz-Nk-fbe" firstAttribute="top" secondItem="Ed2-xa-r7w" secondAttribute="bottom" constant="19" id="xBM-hV-FXn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="manButton" destination="xzK-fA-0iJ" id="LYp-wr-alK"/>
+                        <outlet property="notManButton" destination="vYN-Y2-Gec" id="tcc-Sn-QF1"/>
+                        <outlet property="percentageLabel" destination="Gfz-Nk-fbe" id="YBY-LT-U6m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
