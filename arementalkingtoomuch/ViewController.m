@@ -22,7 +22,23 @@ double timerInterval = 10.0;
 double timerElapsed = 0.0;
 NSDate *timerStarted;
 bool running = NO;
+NSMutableDictionary *timers;
+NSString *currentTimer;
 
+
+#pragma mark - initialisation
+- (void)setUp
+{
+    timers = [NSMutableDictionary dictionary];
+    [timers setValue:@(0.0) forKey: @"dudeTimer"];
+    [timers setObject:@(0.0) forKey: @"noDudeTimer"];
+}
+
+- (void)awakeFromNib
+{
+    [self setUp];
+    [super awakeFromNib];
+}
 
 -(void) startTimer {
     timer = [NSTimer
@@ -35,27 +51,32 @@ bool running = NO;
     timerStarted = [NSDate date];
     running = YES;
 }
-- (void)timerTick:(NSTimer *)timer {
+
+-(void) updateLabel {
     
     timerElapsed = [[NSDate date] timeIntervalSinceDate:timerStarted];
     
-    double seconds = fmod(timerElapsed, 60.0);
-    double minutes = fmod(trunc(timerElapsed / 60.0), 60.0);
-    double hours = trunc(timerElapsed / 3600.0);
-    NSLog(@"Click!!  %f", timerElapsed);
-    NSLog(@"Click!!  %02.0f", seconds);
-    NSLog(@"Click!!  %f", minutes);
-    NSLog(@"Click!!  %f", hours);
-    self.dudeTimeLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f", minutes, seconds];
+    NSNumber *currentTime = timers[currentTimer];
+    double timePlusOffset = timerElapsed + [currentTime doubleValue];
+    
+    double seconds = fmod(timePlusOffset, 60.0);
+    double minutes = fmod(trunc(timePlusOffset / 60.0), 60.0);
+    double hours = trunc(timePlusOffset / 3600.0);
+    
+    NSString *label = [NSString stringWithFormat:@"%02.0f:%02.0f", minutes, seconds];
+    
+    if([currentTimer  isEqual: @"dudeTimer"]) {
+        self.dudeTimeLabel.text = label;
+    }
+    
+    if([currentTimer  isEqual: @"notDudeTimer"]) {
+        self.notDudeTimeLabel.text = label;
+    }
 }
 
--(void) fired {
-    [timer invalidate];
-    timer = nil;
-    timerElapsed = 0.0;
-    [self startTimer];
-    NSLog(@"Click!!  %f", timerElapsed);
-    // react to timer event here
+- (void)timerTick:(NSTimer *)timer {
+    
+    [self updateLabel];
 }
 
 -(void) pauseTimer {
@@ -64,17 +85,21 @@ bool running = NO;
     timer = nil;
     timerElapsed = [[NSDate date] timeIntervalSinceDate:timerStarted];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"mm:ss.S"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+    [self updateLabel];
+    [self saveTimer: timerElapsed timerName: currentTimer];
+}
+
+-(void) saveTimer:(double)timeElapsed timerName:(NSString *)timerName {
     
-    NSLog(@"Click!!  %f", timerElapsed);
-    // NSString *timeString = [dateFormatter stringFromDate:timerElapsed];
-    // self.dudeTimeLabel.text = timeString;
+    NSNumber *currentTime = timers[timerName];
+    double timePlusOffset = timerElapsed + [currentTime doubleValue];
+    [timers setValue:@(timePlusOffset) forKey: timerName];
+    
 }
 
 - (IBAction)handleButtonEvent:(UIButton *)sender {
     NSLog(@"Click!!  %@", sender.currentTitle);
+    currentTimer = [sender.currentTitle  isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
     if(!running) {
         [self startTimer];
     } else {
