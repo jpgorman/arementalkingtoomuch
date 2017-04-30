@@ -21,7 +21,7 @@ NSTimer *timer;
 double timerInterval = 10.0;
 double timerElapsed = 0.0;
 NSDate *timerStarted;
-bool running = NO;
+bool isRunning = NO;
 NSMutableDictionary *timers;
 NSString *currentTimer;
 
@@ -31,7 +31,7 @@ NSString *currentTimer;
 {
     timers = [NSMutableDictionary dictionary];
     [timers setValue:@(0.0) forKey: @"dudeTimer"];
-    [timers setObject:@(0.0) forKey: @"noDudeTimer"];
+    [timers setValue:@(0.0) forKey: @"noDudeTimer"];
 }
 
 - (void)awakeFromNib
@@ -49,7 +49,7 @@ NSString *currentTimer;
              repeats:YES
             ];
     timerStarted = [NSDate date];
-    running = YES;
+    isRunning = YES;
 }
 
 -(void) updateLabel {
@@ -65,13 +65,29 @@ NSString *currentTimer;
     
     NSString *label = [NSString stringWithFormat:@"%02.0f:%02.0f", minutes, seconds];
     
-    if([currentTimer  isEqual: @"dudeTimer"]) {
+    if([currentTimer isEqual: @"dudeTimer"]) {
         self.dudeTimeLabel.text = label;
     }
     
-    if([currentTimer  isEqual: @"notDudeTimer"]) {
+    if([currentTimer isEqual: @"notDudeTimer"]) {
         self.notDudeTimeLabel.text = label;
     }
+    
+    [self updatePercentage: timerElapsed];
+}
+
+- (void) updatePercentage:(double)timerElapsed {
+    NSNumber *dudeTime = timers[@"dudeTimer"];
+    NSNumber *notDudeTime = timers[@"notDudeTimer"];
+    
+    double d_time = [currentTimer isEqual: @"dudeTimer"] ? timerElapsed + [dudeTime doubleValue] : [dudeTime doubleValue];
+    double l_time = [currentTimer isEqual: @"notDudeTimer"] ? timerElapsed + [notDudeTime doubleValue] : [notDudeTime doubleValue];
+    NSLog(@"%f", d_time);
+    NSLog(@"%f", l_time);
+    
+    double percentage = d_time / (d_time + l_time) * 100;
+    
+    self.percentageLabel.text = [NSString stringWithFormat:@"%02.0f%s", percentage, "% men"];
 }
 
 - (void)timerTick:(NSTimer *)timer {
@@ -80,7 +96,7 @@ NSString *currentTimer;
 }
 
 -(void) pauseTimer {
-    running = NO;
+    isRunning = NO;
     [timer invalidate];
     timer = nil;
     timerElapsed = [[NSDate date] timeIntervalSinceDate:timerStarted];
@@ -98,14 +114,21 @@ NSString *currentTimer;
 }
 
 - (IBAction)handleButtonEvent:(UIButton *)sender {
-    NSLog(@"Click!!  %@", sender.currentTitle);
-    currentTimer = [sender.currentTitle  isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
-    if(!running) {
+    NSString *nextTimer;
+    nextTimer = [sender.currentTitle isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
+    
+    if(currentTimer != nextTimer && isRunning) {
+        [self pauseTimer];
+        isRunning = NO;
+    }
+    
+    currentTimer = nextTimer;
+    
+    if(!isRunning) {
         [self startTimer];
     } else {
         [self pauseTimer];
     }
-    // [self updateUI];
 }
 
 
