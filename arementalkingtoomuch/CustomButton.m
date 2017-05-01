@@ -26,7 +26,7 @@
 
 - (void)drawCircleWithXoffset:(int)atOffset withBackground:(UIColor*)backgroundColor {
     
-    int offset = 5;
+    int offset = 7;
     
     UIBezierPath *layer = [UIBezierPath
                            bezierPathWithRoundedRect:CGRectMake(offset, atOffset, self.bounds.size.width - offset, self.bounds.size.height - offset)
@@ -38,7 +38,7 @@
 - (void)drawRect:(CGRect)rect {
     
     // Draw shadow
-    [self drawCircleWithXoffset:5 withBackground:[UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:1.0]];
+    [self drawCircleWithXoffset:7 withBackground:[UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:1.0]];
     
     // Draw button
     UIColor *backgroundColor = self.isActive

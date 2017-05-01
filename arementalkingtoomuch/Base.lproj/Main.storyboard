@@ -39,7 +39,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzK-fA-0iJ" customClass="CustomButton">
+                            <button opaque="NO" tag="99" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzK-fA-0iJ" customClass="CustomButton">
                                 <rect key="frame" x="49" y="331" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <state key="normal" title="a dude">
@@ -68,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYN-Y2-Gec" customClass="CustomButton">
+                            <button opaque="NO" tag="98" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYN-Y2-Gec" customClass="CustomButton">
                                 <rect key="frame" x="219" y="331" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="not a dude">
@@ -123,9 +123,9 @@
                     </view>
                     <connections>
                         <outlet property="dudeTimeLabel" destination="9GP-bI-8jG" id="mSP-WW-YnG"/>
-                        <outlet property="manButton" destination="xzK-fA-0iJ" id="LYp-wr-alK"/>
+                        <outlet property="manButton" destination="xzK-fA-0iJ" id="P3C-c0-eN6"/>
                         <outlet property="notDudeTimeLabel" destination="VaD-b4-Ct3" id="fEi-y8-B0b"/>
-                        <outlet property="notManButton" destination="vYN-Y2-Gec" id="tcc-Sn-QF1"/>
+                        <outlet property="notManButton" destination="vYN-Y2-Gec" id="STb-5R-gpv"/>
                         <outlet property="percentageLabel" destination="Gfz-Nk-fbe" id="YBY-LT-U6m"/>
                     </connections>
                 </viewController>

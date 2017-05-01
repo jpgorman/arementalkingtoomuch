@@ -9,8 +9,8 @@
 #import "ViewController.h"
 #import "CustomButton.h"
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *manButton;
-@property (weak, nonatomic) IBOutlet UIButton *notManButton;
+@property (weak, nonatomic) IBOutlet CustomButton *manButton;
+@property (weak, nonatomic) IBOutlet CustomButton *notManButton;
 @property (weak, nonatomic) IBOutlet UILabel *percentageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dudeTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *notDudeTimeLabel;
@@ -113,11 +113,13 @@ NSString *currentTimer;
 
 - (IBAction)handleButtonEvent:(CustomButton *)sender {
     NSString *nextTimer;
+    CustomButton *currentActivebutton = [sender.currentTitle isEqual: @"a dude"] ? self.notManButton : self.manButton;
     nextTimer = [sender.currentTitle isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
     
     if(currentTimer != nextTimer && isRunning) {
         [self pauseTimer];
         isRunning = NO;
+        currentActivebutton.isActive = NO;
     }
     
     currentTimer = nextTimer;
