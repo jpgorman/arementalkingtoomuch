@@ -13,6 +13,7 @@
 		B8ADEDDD1EAB4419008EAC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8ADEDDB1EAB4419008EAC36 /* Main.storyboard */; };
 		B8ADEDDF1EAB4419008EAC36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADEDDE1EAB4419008EAC36 /* Assets.xcassets */; };
 		B8ADEDE21EAB4419008EAC36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8ADEDE01EAB4419008EAC36 /* LaunchScreen.storyboard */; };
+		B8B5E5B01EB787C000D3A8F2 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B5E5AF1EB787C000D3A8F2 /* CustomButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		B8ADEDDE1EAB4419008EAC36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8ADEDE11EAB4419008EAC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8ADEDE31EAB4419008EAC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8B5E5AE1EB787C000D3A8F2 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		B8B5E5AF1EB787C000D3A8F2 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				B8ADEDE01EAB4419008EAC36 /* LaunchScreen.storyboard */,
 				B8ADEDE31EAB4419008EAC36 /* Info.plist */,
 				B8ADEDD21EAB4419008EAC36 /* Supporting Files */,
+				B8B5E5AE1EB787C000D3A8F2 /* CustomButton.h */,
+				B8B5E5AF1EB787C000D3A8F2 /* CustomButton.m */,
 			);
 			path = arementalkingtoomuch;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B5E5B01EB787C000D3A8F2 /* CustomButton.m in Sources */,
 				B8ADEDDA1EAB4419008EAC36 /* ViewController.m in Sources */,
 				B8ADEDD71EAB4419008EAC36 /* AppDelegate.m in Sources */,
 				B8ADEDD41EAB4419008EAC36 /* main.m in Sources */,
@@ -310,6 +316,7 @@
 				B8ADEDE81EAB4419008EAC36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

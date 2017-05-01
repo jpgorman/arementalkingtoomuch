@@ -5,8 +5,9 @@
 //  Created by Jean-Paul Gorman on 22/04/2017.
 //  Copyright © 2017 Jean-Paul Gorman. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
 #import "ViewController.h"
+#import "CustomButton.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *manButton;
 @property (weak, nonatomic) IBOutlet UIButton *notManButton;
@@ -39,7 +40,6 @@ NSString *currentTimer;
     [self setUp];
     [super awakeFromNib];
 }
-
 -(void) startTimer {
     timer = [NSTimer
              scheduledTimerWithTimeInterval:1.0
@@ -82,8 +82,6 @@ NSString *currentTimer;
     
     double d_time = [currentTimer isEqual: @"dudeTimer"] ? timerElapsed + [dudeTime doubleValue] : [dudeTime doubleValue];
     double l_time = [currentTimer isEqual: @"notDudeTimer"] ? timerElapsed + [notDudeTime doubleValue] : [notDudeTime doubleValue];
-    NSLog(@"%f", d_time);
-    NSLog(@"%f", l_time);
     
     double percentage = d_time / (d_time + l_time) * 100;
     
@@ -113,7 +111,7 @@ NSString *currentTimer;
     
 }
 
-- (IBAction)handleButtonEvent:(UIButton *)sender {
+- (IBAction)handleButtonEvent:(CustomButton *)sender {
     NSString *nextTimer;
     nextTimer = [sender.currentTitle isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
     
@@ -125,8 +123,10 @@ NSString *currentTimer;
     currentTimer = nextTimer;
     
     if(!isRunning) {
+        sender.isActive = YES;
         [self startTimer];
     } else {
+        sender.isActive = NO;
         [self pauseTimer];
     }
 }
