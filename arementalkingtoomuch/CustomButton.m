@@ -21,6 +21,12 @@
     [self setNeedsDisplay];
 }
 
+- (void)setLabel:(NSString *)label
+{
+    _label = label;
+    [self setNeedsDisplay];
+}
+
 #pragma mark - drawing
 - (CGFloat)cornerRadius{ return 0.5 * self.bounds.size.width;}
 
@@ -47,11 +53,27 @@
     
     [self drawCircleWithXoffset:self.isActive ? 5 : 0 withBackground:backgroundColor];
     
+    NSLog(@"%@", self.label);
+    UILabel *label = [self drawLabel:self.label];
+    [self addSubview:label];
+    
+}
+
+- (UILabel*)drawLabel:(NSString*)title {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setTextColor:[UIColor blackColor]];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setFont:[UIFont fontWithName: @"Futura" size: 18.0f]];
+    [label setText:title];
+    [label setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+    return label;
 }
 
 #pragma mark - initialisation
 - (void)setUp
 {
+    
     self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;

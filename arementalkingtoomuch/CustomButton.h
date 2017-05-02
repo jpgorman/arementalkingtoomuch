@@ -10,4 +10,5 @@
 
 @interface CustomButton : UIButton
 @property (nonatomic) BOOL isActive;
+@property (strong, nonatomic) NSString *label;
 @end

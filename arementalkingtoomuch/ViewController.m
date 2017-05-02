@@ -30,6 +30,8 @@ NSString *currentTimer;
 #pragma mark - initialisation
 - (void)setUp
 {
+    self.manButton.label = @"A dude";
+    self.notManButton.label = @"Not a dude";
     timers = [NSMutableDictionary dictionary];
     [timers setValue:@(0.0) forKey: @"dudeTimer"];
     [timers setValue:@(0.0) forKey: @"noDudeTimer"];
@@ -113,8 +115,8 @@ NSString *currentTimer;
 
 - (IBAction)handleButtonEvent:(CustomButton *)sender {
     NSString *nextTimer;
-    CustomButton *currentActivebutton = [sender.currentTitle isEqual: @"a dude"] ? self.notManButton : self.manButton;
-    nextTimer = [sender.currentTitle isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
+    CustomButton *currentActivebutton = [sender.label isEqual: @"a dude"] ? self.notManButton : self.manButton;
+    nextTimer = [sender.label isEqual: @"a dude"] ? @"dudeTimer" : @"notDudeTimer";
     
     if(currentTimer != nextTimer && isRunning) {
         [self pauseTimer];
