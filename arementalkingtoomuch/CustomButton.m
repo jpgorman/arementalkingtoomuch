@@ -64,7 +64,7 @@
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setTextColor:[UIColor blackColor]];
     [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[UIFont fontWithName: @"Futura" size: 18.0f]];
+    [label setFont:[UIFont fontWithName: @"Futura" size: 16.0f]];
     [label setText:title];
     [label setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
     return label;
@@ -73,7 +73,6 @@
 #pragma mark - initialisation
 - (void)setUp
 {
-    
     self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
