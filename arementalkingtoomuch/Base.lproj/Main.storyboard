@@ -83,7 +83,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="vYN-Y2-Gec" secondAttribute="trailing" constant="50" id="0mp-nc-mUP"/>
                             <constraint firstItem="Ed2-xa-r7w" firstAttribute="centerX" secondItem="4XD-Gn-MlL" secondAttribute="centerX" id="6pa-zf-FOp"/>
                             <constraint firstItem="4XD-Gn-MlL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="7UV-CP-Rrs"/>
                             <constraint firstItem="Gfz-Nk-fbe" firstAttribute="top" secondItem="Ed2-xa-r7w" secondAttribute="bottom" constant="50" id="GxA-5F-qgu"/>
@@ -101,8 +100,9 @@
                             <constraint firstItem="Ed2-xa-r7w" firstAttribute="top" secondItem="4XD-Gn-MlL" secondAttribute="bottom" constant="50" id="h7v-J9-iXn"/>
                             <constraint firstItem="VaD-b4-Ct3" firstAttribute="width" secondItem="vYN-Y2-Gec" secondAttribute="width" id="iZy-Vv-eD5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VaD-b4-Ct3" secondAttribute="bottom" constant="50" id="ivy-Hd-otL"/>
-                            <constraint firstItem="xzK-fA-0iJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="l4Y-Ul-zbe"/>
                             <constraint firstItem="Gfz-Nk-fbe" firstAttribute="centerX" secondItem="4XD-Gn-MlL" secondAttribute="centerX" id="mbt-BN-ziC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vYN-Y2-Gec" secondAttribute="trailing" constant="20" id="nxp-yf-FsO"/>
+                            <constraint firstItem="xzK-fA-0iJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="oKM-jY-diG"/>
                             <constraint firstItem="Gfz-Nk-fbe" firstAttribute="width" secondItem="4XD-Gn-MlL" secondAttribute="width" id="pTb-SJ-i5E"/>
                             <constraint firstItem="9GP-bI-8jG" firstAttribute="width" secondItem="xzK-fA-0iJ" secondAttribute="width" id="uql-u7-XfS"/>
                         </constraints>
