@@ -8,7 +8,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ViewController.h"
 #import "CustomButton.h"
+#include <math.h>
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *viewTitle;
 @property (weak, nonatomic) IBOutlet CustomButton *manButton;
 @property (weak, nonatomic) IBOutlet CustomButton *notManButton;
 @property (weak, nonatomic) IBOutlet UILabel *percentageLabel;
@@ -17,6 +19,7 @@
 @end
 
 @implementation ViewController
+@dynamic title;
 
 NSTimer *timer;
 double timerInterval = 10.0;
@@ -36,6 +39,9 @@ NSString *currentTimer;
 }
 
 - (void) viewDidLoad {
+    self.percentageLabel.textColor = [UIColor colorWithRed:0.73 green:0.76 blue:0.75 alpha:1.0];
+    self.viewTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    self.viewTitle.numberOfLines = 2;
     self.manButton.label = @"A dude";
     self.notManButton.label = @"Not a dude";
 }
@@ -47,7 +53,7 @@ NSString *currentTimer;
 }
 -(void) startTimer {
     timer = [NSTimer
-             scheduledTimerWithTimeInterval:1.0
+             scheduledTimerWithTimeInterval:0.1
              target:self
              selector:@selector(timerTick:)
              userInfo:nil
@@ -61,14 +67,16 @@ NSString *currentTimer;
     
     timerElapsed = [[NSDate date] timeIntervalSinceDate:timerStarted];
     
+    
     NSNumber *currentTime = timers[currentTimer];
     double timePlusOffset = timerElapsed + [currentTime doubleValue];
-    
     double seconds = fmod(timePlusOffset, 60.0);
     double minutes = fmod(trunc(timePlusOffset / 60.0), 60.0);
     double hours = trunc(timePlusOffset / 3600.0);
     
-    NSString *label = [NSString stringWithFormat:@"%02.0f:%02.0f", minutes, seconds];
+    NSString *label = hours > 0
+    ? [NSString stringWithFormat:@"%02.0f:%02.0f:%02.0f", hours, minutes, seconds]
+    : [NSString stringWithFormat:@"%02.0f:%02.0f", minutes, seconds];
     
     if([currentTimer isEqual: @"dudeTimer"]) {
         self.dudeTimeLabel.text = label;
@@ -90,7 +98,9 @@ NSString *currentTimer;
     
     double percentage = d_time / (d_time + l_time) * 100;
     
-    self.percentageLabel.text = [NSString stringWithFormat:@"%02.0f%s", percentage, "% men"];
+    NSString *format = percentage < 10 ? @"%2.0f%s" : @"%02.0f%s";
+    
+    self.percentageLabel.text = [NSString stringWithFormat:format, percentage, "% men"];
 }
 
 - (void)timerTick:(NSTimer *)timer {
@@ -119,7 +129,7 @@ NSString *currentTimer;
 - (IBAction)handleButtonEvent:(CustomButton *)sender {
     NSString *nextTimer;
     CustomButton *currentActivebutton = [sender.label caseInsensitiveCompare: @"a dude"] == NSOrderedSame ? self.notManButton : self.manButton;
-    NSLog(@"%ld", (long)[sender.label caseInsensitiveCompare: @"a dude"]);
+    
     nextTimer = [sender.label caseInsensitiveCompare: @"a dude"] == NSOrderedSame ? @"dudeTimer" : @"notDudeTimer";
     
     if(currentTimer != nextTimer && isRunning) {
