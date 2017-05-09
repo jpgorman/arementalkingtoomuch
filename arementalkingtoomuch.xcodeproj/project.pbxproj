@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B899BF7B1EC25736000F404F /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B899BF7A1EC25736000F404F /* UserInputViewController.m */; };
 		B8ADEDD41EAB4419008EAC36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADEDD31EAB4419008EAC36 /* main.m */; };
 		B8ADEDD71EAB4419008EAC36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADEDD61EAB4419008EAC36 /* AppDelegate.m */; };
 		B8ADEDDA1EAB4419008EAC36 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADEDD91EAB4419008EAC36 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B899BF791EC25736000F404F /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
+		B899BF7A1EC25736000F404F /* UserInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInputViewController.m; sourceTree = "<group>"; };
 		B8ADEDCF1EAB4419008EAC36 /* arementalkingtoomuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arementalkingtoomuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ADEDD31EAB4419008EAC36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8ADEDD51EAB4419008EAC36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 				B8ADEDD81EAB4419008EAC36 /* ViewController.h */,
 				B8ADEDD91EAB4419008EAC36 /* ViewController.m */,
 				B8ADEDDB1EAB4419008EAC36 /* Main.storyboard */,
+				B899BF791EC25736000F404F /* UserInputViewController.h */,
+				B899BF7A1EC25736000F404F /* UserInputViewController.m */,
 				B8ADEDDE1EAB4419008EAC36 /* Assets.xcassets */,
 				B8ADEDE01EAB4419008EAC36 /* LaunchScreen.storyboard */,
 				B8ADEDE31EAB4419008EAC36 /* Info.plist */,
@@ -156,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B899BF7B1EC25736000F404F /* UserInputViewController.m in Sources */,
 				B8B5E5B01EB787C000D3A8F2 /* CustomButton.m in Sources */,
 				B8ADEDDA1EAB4419008EAC36 /* ViewController.m in Sources */,
 				B8ADEDD71EAB4419008EAC36 /* AppDelegate.m in Sources */,
@@ -281,7 +287,7 @@
 				INFOPLIST_FILE = arementalkingtoomuch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gorman.g.p.j.arementalkingtoomuch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arementalkingtoomuch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -294,7 +300,7 @@
 				INFOPLIST_FILE = arementalkingtoomuch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gorman.g.p.j.arementalkingtoomuch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arementalkingtoomuch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

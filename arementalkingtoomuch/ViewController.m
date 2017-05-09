@@ -29,7 +29,6 @@ bool isRunning = NO;
 NSMutableDictionary *timers;
 NSString *currentTimer;
 
-
 #pragma mark - initialisation
 - (void)setUp
 {
@@ -38,12 +37,25 @@ NSString *currentTimer;
     [timers setValue:@(0.0) forKey: @"noDudeTimer"];
 }
 
+- (void)setTopic:(NSString *)topic
+{
+    _topic = topic;
+    if (self.view.window) [self setUp];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setUp];
+}
+
 - (void) viewDidLoad {
     self.percentageLabel.textColor = [UIColor colorWithRed:0.73 green:0.76 blue:0.75 alpha:1.0];
     self.viewTitle.lineBreakMode = NSLineBreakByWordWrapping;
     self.viewTitle.numberOfLines = 2;
-    self.manButton.label = @"A dude";
-    self.notManButton.label = @"Not a dude";
+    self.percentageLabel.text = [NSString stringWithFormat:@"%2.0f%s%@", 0.0, "% ", self.topic];
+    self.manButton.label = self.topic;
+    self.notManButton.label = [[NSArray arrayWithObjects:@"Not", self.topic, nil] componentsJoinedByString:@" "];
 }
 
 - (void)awakeFromNib
@@ -98,9 +110,9 @@ NSString *currentTimer;
     
     double percentage = d_time / (d_time + l_time) * 100;
     
-    NSString *format = percentage < 10 ? @"%2.0f%s" : @"%02.0f%s";
+    NSString *format = percentage < 10 ? @"%2.0f%s%@" : @"%02.0f%s%@";
     
-    self.percentageLabel.text = [NSString stringWithFormat:format, percentage, "% men"];
+    self.percentageLabel.text = [NSString stringWithFormat:format, percentage, "% ", self.topic];
 }
 
 - (void)timerTick:(NSTimer *)timer {
@@ -127,10 +139,12 @@ NSString *currentTimer;
 }
 
 - (IBAction)handleButtonEvent:(CustomButton *)sender {
-    NSString *nextTimer;
-    CustomButton *currentActivebutton = [sender.label caseInsensitiveCompare: @"a dude"] == NSOrderedSame ? self.notManButton : self.manButton;
     
-    nextTimer = [sender.label caseInsensitiveCompare: @"a dude"] == NSOrderedSame ? @"dudeTimer" : @"notDudeTimer";
+    NSLog(@"%ld", (long)sender.tag);
+    NSString *nextTimer;
+    CustomButton *currentActivebutton = sender.tag == 0 ? self.notManButton : self.manButton;
+    
+    nextTimer = sender.tag == 0 ? @"dudeTimer" : @"notDudeTimer";
     
     if(currentTimer != nextTimer && isRunning) {
         [self pauseTimer];
