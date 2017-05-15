@@ -7,10 +7,14 @@
 //
 
 #import "UserInputViewController.h"
+#import "CustomTextField.h"
+#import "CustomButton.h"
 #import "ViewController.h"
 
 @interface UserInputViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textInput;
+@property (weak, nonatomic) IBOutlet CustomTextField *PersonA;
+@property (weak, nonatomic) IBOutlet CustomTextField *PersonB;
+@property (weak, nonatomic) IBOutlet CustomButton *submitButton;
 
 @end
 
@@ -24,18 +28,26 @@
     if ([[segue identifier] isEqualToString:@"StartConversation"]) {
         if([segue.destinationViewController isKindOfClass:[ViewController class]]) {
             ViewController *vc = (ViewController *)segue.destinationViewController;
-            vc.topic = self.textInput.text;
+            vc.personA = self.PersonA.text;
+            vc.personB = self.PersonB.text;
         }
     }
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
+- (void)textFieldDidBeginEditing:(CustomTextField *)textField {
+    NSLog(@"Text field did begin editing");
+}
+- (void)textFieldDidEndEditing:(CustomTextField *)textField {
+    NSLog(@"Text field ended editing");
+}
+
+-(BOOL)textFieldShouldReturn:(CustomTextField *)textField
 {
     
     
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Confirmation"
-                                 message:self.textInput.text
+                                 message:self.PersonA.text
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* yesButton = [UIAlertAction
@@ -60,9 +72,17 @@
 }
 
 - (void)viewDidLoad {
+    [self setUp];
     [super viewDidLoad];
-    self.textInput.delegate = self;
-    // Do any additional setup after loading the view.
+}
+
+- (void)setUp {
+    self.PersonA.label = @"Me?";
+    self.PersonB.label = @"Someone else?";
+    self.submitButton.label = @"Start";
+    // sets the delegate to the current class
+    self.PersonA.delegate = self;
+    self.PersonB.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B899BF7B1EC25736000F404F /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B899BF7A1EC25736000F404F /* UserInputViewController.m */; };
+		B899BF7E1EC847CA000F404F /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B899BF7D1EC847CA000F404F /* CustomTextField.m */; };
 		B8ADEDD41EAB4419008EAC36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADEDD31EAB4419008EAC36 /* main.m */; };
 		B8ADEDD71EAB4419008EAC36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADEDD61EAB4419008EAC36 /* AppDelegate.m */; };
 		B8ADEDDA1EAB4419008EAC36 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADEDD91EAB4419008EAC36 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		B899BF791EC25736000F404F /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
 		B899BF7A1EC25736000F404F /* UserInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInputViewController.m; sourceTree = "<group>"; };
+		B899BF7C1EC847CA000F404F /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		B899BF7D1EC847CA000F404F /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 		B8ADEDCF1EAB4419008EAC36 /* arementalkingtoomuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arementalkingtoomuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ADEDD31EAB4419008EAC36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8ADEDD51EAB4419008EAC36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 				B8ADEDE31EAB4419008EAC36 /* Info.plist */,
 				B8ADEDD21EAB4419008EAC36 /* Supporting Files */,
 				B8B5E5AE1EB787C000D3A8F2 /* CustomButton.h */,
+				B899BF7C1EC847CA000F404F /* CustomTextField.h */,
+				B899BF7D1EC847CA000F404F /* CustomTextField.m */,
 				B8B5E5AF1EB787C000D3A8F2 /* CustomButton.m */,
 			);
 			path = arementalkingtoomuch;
@@ -165,6 +170,7 @@
 				B8B5E5B01EB787C000D3A8F2 /* CustomButton.m in Sources */,
 				B8ADEDDA1EAB4419008EAC36 /* ViewController.m in Sources */,
 				B8ADEDD71EAB4419008EAC36 /* AppDelegate.m in Sources */,
+				B899BF7E1EC847CA000F404F /* CustomTextField.m in Sources */,
 				B8ADEDD41EAB4419008EAC36 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

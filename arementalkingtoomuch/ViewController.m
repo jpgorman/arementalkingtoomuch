@@ -37,10 +37,13 @@ NSString *currentTimer;
     [timers setValue:@(0.0) forKey: @"noDudeTimer"];
 }
 
-- (void)setTopic:(NSString *)topic
+- (void)setPersonA:(NSString *)personA
 {
-    _topic = topic;
-    if (self.view.window) [self setUp];
+    _personA = personA;
+}
+- (void)setPersonB:(NSString *)personB
+{
+    _personB = personB;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,9 +56,11 @@ NSString *currentTimer;
     self.percentageLabel.textColor = [UIColor colorWithRed:0.73 green:0.76 blue:0.75 alpha:1.0];
     self.viewTitle.lineBreakMode = NSLineBreakByWordWrapping;
     self.viewTitle.numberOfLines = 2;
-    self.percentageLabel.text = [NSString stringWithFormat:@"%2.0f%s%@", 0.0, "% ", self.topic];
-    self.manButton.label = self.topic;
-    self.notManButton.label = [[NSArray arrayWithObjects:@"Not", self.topic, nil] componentsJoinedByString:@" "];
+    self.percentageLabel.text = [NSString stringWithFormat:@"%2.0f%s%@", 0.0, "% ", self.personA];
+    self.manButton.label = self.personA;
+    self.notManButton.label = [self.personB length] == 0
+    ? [[NSArray arrayWithObjects:@"Not", self.personA, nil] componentsJoinedByString:@" "]
+    : self.personB;
 }
 
 - (void)awakeFromNib
@@ -112,7 +117,7 @@ NSString *currentTimer;
     
     NSString *format = percentage < 10 ? @"%2.0f%s%@" : @"%02.0f%s%@";
     
-    self.percentageLabel.text = [NSString stringWithFormat:format, percentage, "% ", self.topic];
+    self.percentageLabel.text = [NSString stringWithFormat:format, percentage, "% ", self.personA];
 }
 
 - (void)timerTick:(NSTimer *)timer {
@@ -140,7 +145,6 @@ NSString *currentTimer;
 
 - (IBAction)handleButtonEvent:(CustomButton *)sender {
     
-    NSLog(@"%ld", (long)sender.tag);
     NSString *nextTimer;
     CustomButton *currentActivebutton = sender.tag == 0 ? self.notManButton : self.manButton;
     

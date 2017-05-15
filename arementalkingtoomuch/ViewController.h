@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) NSString *topic;
+@property (weak, nonatomic) NSString *personA;
+@property (weak, nonatomic) NSString *personB;
 @end
 
